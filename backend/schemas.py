@@ -33,3 +33,30 @@ class CajaOut(CajaBase):
     fecha_ingreso: datetime
     class Config:
         orm_mode = True
+
+class NivelSimple(BaseModel):
+    id: int
+    numero: int
+    estanteria_id: int
+
+    class Config:
+        orm_mode = True
+
+class DepartamentoOut(BaseModel):
+    id: int
+    nombre: str
+
+    class Config:
+        orm_mode = True
+
+class MovimientoBase(BaseModel):
+    caja_id: int
+    usuario_id: int
+    descripcion: str
+
+class MovimientoOut(MovimientoBase):
+    id: int
+    fecha: datetime
+
+    class Config:
+        orm_mode = True
